@@ -1,0 +1,76 @@
+ssh root@137.184.30.61
+
+sudo apt install nginx
+
+sudo apt install ufw
+
+sudo ufw status
+
+sudo ufw app list
+
+sudo ufw allow ‘Nginx HTTP’
+
+systemctl status nginx
+
+ls
+
+cd /etc/nginx/sites-enabled
+
+ls -ltr
+
+cd ..
+
+cd sites-enabled
+
+unlink default
+
+cd ..
+
+cd conf.d
+
+sudo apt install nano
+
+nano thisOne.local.conf
+
+-	Inside the thisOne.local.conf
+
+server { 
+	listen 80 default_server;
+	index hereLilOne;
+	server_name thisOne.local;
+	root /var/www/html/hereLilOne;
+}
+
+systemctl reload nginx
+
+-	Now one the user@debian
+
+cd /Documents/TravelAndrei
+
+scp hereLilOne.zip root@137.184.30.61:/var/www/html
+
+ssh root@137.184.30.61
+
+cd /var/www/html
+
+ls
+
+sudo apt install unzip
+
+unzip hereLilOne.zip
+
+ls
+
+cp -R hereLilOne/* .
+
+ls
+
+-	In the user@debian
+
+sudo aufw app list
+
+sudo ufw allow ssh
+
+sudo ufw enable
+
+sudo ufw status
